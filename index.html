@@ -3,46 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Решатель матриц - Высшая математика</title>
+    <title>Matrix Solver Pro | Решатель матриц</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="cyber-background">
+        <div class="grid-overlay"></div>
+        <div class="particles"></div>
+    </div>
+
     <div class="container">
-        <header>
-            <h1>Решатель матриц</h1>
-            <p>Инструмент для решения задач по высшей математике</p>
+        <header class="cyber-header">
+            <div class="glitch-container">
+                <h1 class="cyber-title glitch" data-text="MATRIX SOLVER PRO">MATRIX SOLVER PRO</h1>
+                <div class="scanline"></div>
+            </div>
+            <p class="cyber-subtitle">Квантовый решатель матриц для высшей математики</p>
+            <div class="header-stats">
+                <div class="stat">
+                    <span class="stat-value" id="matrix-count">0</span>
+                    <span class="stat-label">решено матриц</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="operation-count">0</span>
+                    <span class="stat-label">операций</span>
+                </div>
+            </div>
         </header>
 
         <div class="main-content">
-            <div class="matrix-input-section">
-                <h2>Введите матрицу</h2>
-                <div class="matrix-size-selector">
-                    <label>Размер матрицы:</label>
-                    <input type="number" id="rows" min="1" max="6" value="3" placeholder="Строки">
-                    <span>×</span>
-                    <input type="number" id="cols" min="1" max="6" value="3" placeholder="Столбцы">
-                    <button onclick="createMatrixInput()">Создать матрицу</button>
+            <div class="cyber-panel matrix-input-section">
+                <div class="panel-header">
+                    <h2>▣ ВВОД МАТРИЦЫ</h2>
+                    <div class="panel-controls">
+                        <div class="control-dot red"></div>
+                        <div class="control-dot yellow"></div>
+                        <div class="control-dot green"></div>
+                    </div>
                 </div>
+                <div class="panel-content">
+                    <div class="matrix-size-selector">
+                        <div class="input-group">
+                            <label class="cyber-label">▸ РАЗМЕР МАТРИЦЫ:</label>
+                            <div class="size-inputs">
+                                <input type="number" id="rows" min="1" max="6" value="3" class="cyber-input">
+                                <span class="separator">×</span>
+                                <input type="number" id="cols" min="1" max="6" value="3" class="cyber-input">
+                                <button onclick="createMatrixInput()" class="cyber-button">
+                                    <span class="btn-text">СОЗДАТЬ</span>
+                                    <div class="btn-glow"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
-                <div id="matrix-container"></div>
-                <button onclick="solveMatrix()" id="solve-btn">Решить матрицу</button>
+                    <div id="matrix-container" class="matrix-grid"></div>
+                    
+                    <button onclick="solveMatrix()" id="solve-btn" class="cyber-button primary">
+                        <span class="btn-text">🚀 РЕШИТЬ МАТРИЦУ</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
             </div>
 
-            <div class="operations-section">
-                <h2>Операции с матрицами</h2>
-                <div class="operation-buttons">
-                    <button onclick="calculateDeterminant()">Определитель</button>
-                    <button onclick="transposeMatrix()">Транспонирование</button>
-                    <button onclick="inverseMatrix()">Обратная матрица</button>
-                    <button onclick="rankMatrix()">Ранг матрицы</button>
+            <div class="cyber-panel operations-section">
+                <div class="panel-header">
+                    <h2>⚡ ОПЕРАЦИИ</h2>
+                    <div class="panel-controls">
+                        <div class="control-dot red"></div>
+                        <div class="control-dot yellow"></div>
+                        <div class="control-dot green"></div>
+                    </div>
+                </div>
+                <div class="panel-content">
+                    <div class="operation-grid">
+                        <button onclick="calculateDeterminant()" class="cyber-button operation-btn">
+                            <span class="operation-icon">Δ</span>
+                            <span class="operation-text">Определитель</span>
+                        </button>
+                        <button onclick="transposeMatrix()" class="cyber-button operation-btn">
+                            <span class="operation-icon">T</span>
+                            <span class="operation-text">Транспонирование</span>
+                        </button>
+                        <button onclick="inverseMatrix()" class="cyber-button operation-btn">
+                            <span class="operation-icon">A⁻¹</span>
+                            <span class="operation-text">Обратная матрица</span>
+                        </button>
+                        <button onclick="rankMatrix()" class="cyber-button operation-btn">
+                            <span class="operation-icon">rk</span>
+                            <span class="operation-text">Ранг матрицы</span>
+                        </button>
+                        <button onclick="multiplyMatrices()" class="cyber-button operation-btn">
+                            <span class="operation-icon">×</span>
+                            <span class="operation-text">Умножение</span>
+                        </button>
+                        <button onclick="eigenValues()" class="cyber-button operation-btn">
+                            <span class="operation-icon">λ</span>
+                            <span class="operation-text">Собственные значения</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div class="results-section">
-                <h2>Результаты</h2>
-                <div id="results"></div>
+            <div class="cyber-panel results-section">
+                <div class="panel-header">
+                    <h2>📊 РЕЗУЛЬТАТЫ</h2>
+                    <div class="panel-controls">
+                        <div class="control-dot red"></div>
+                        <div class="control-dot yellow"></div>
+                        <div class="control-dot green"></div>
+                    </div>
+                </div>
+                <div class="panel-content">
+                    <div id="results" class="results-container">
+                        <div class="placeholder">
+                            <div class="placeholder-icon">⏳</div>
+                            <p>Результаты вычислений появятся здесь</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <footer class="cyber-footer">
+            <div class="footer-content">
+                <p>MATRIX SOLVER PRO © 2024 | Квантовые вычисления для высшей математики</p>
+                <div class="footer-links">
+                    <span class="link">v1.0.0</span>
+                    <span class="link">βeta</span>
+                    <span class="link" id="performance">Производительность: 100%</span>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <script src="script.js"></script>
