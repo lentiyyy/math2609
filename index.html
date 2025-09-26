@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Решатель матриц - Высшая математика</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Решатель матриц</h1>
+            <p>Инструмент для решения задач по высшей математике</p>
+        </header>
+
+        <div class="main-content">
+            <div class="matrix-input-section">
+                <h2>Введите матрицу</h2>
+                <div class="matrix-size-selector">
+                    <label>Размер матрицы:</label>
+                    <input type="number" id="rows" min="1" max="6" value="3" placeholder="Строки">
+                    <span>×</span>
+                    <input type="number" id="cols" min="1" max="6" value="3" placeholder="Столбцы">
+                    <button onclick="createMatrixInput()">Создать матрицу</button>
+                </div>
+
+                <div id="matrix-container"></div>
+                <button onclick="solveMatrix()" id="solve-btn">Решить матрицу</button>
+            </div>
+
+            <div class="operations-section">
+                <h2>Операции с матрицами</h2>
+                <div class="operation-buttons">
+                    <button onclick="calculateDeterminant()">Определитель</button>
+                    <button onclick="transposeMatrix()">Транспонирование</button>
+                    <button onclick="inverseMatrix()">Обратная матрица</button>
+                    <button onclick="rankMatrix()">Ранг матрицы</button>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <h2>Результаты</h2>
+                <div id="results"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+.main-content {
+    padding: 30px;
+    display: grid;
+    gap: 30px;
+}
+
+.matrix-input-section, .operations-section, .results-section {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.matrix-size-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.matrix-size-selector input {
+    padding: 8px 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    width: 80px;
+    text-align: center;
+}
+
+button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#matrix-container {
+    margin: 20px 0;
+}
+
+.matrix {
+    display: inline-block;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    padding: 10px;
+    background: white;
+}
+
+.matrix-row {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.matrix-row:last-child {
+    margin-bottom: 0;
+}
+
+.matrix-cell {
+    width: 60px;
+    margin: 0 5px;
+}
+
+.matrix-cell input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.operation-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.operation-buttons button {
+    background: linear-gradient(135deg, #27ae60, #219a52);
+}
+
+#solve-btn {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    padding: 12px 30px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#results {
+    min-height: 100px;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.result-matrix {
+    margin: 10px 0;
+}
+
+.result-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 10px 0;
+}
+
+.error {
+    color: #e74c3c;
+    background: #ffeaea;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.success {
+    color: #27ae60;
+    background: #eafaf1;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .matrix-size-selector {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .operation-buttons {
+        grid-template-columns: 1fr;
+    }
+}
